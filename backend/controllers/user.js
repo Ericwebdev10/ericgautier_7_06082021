@@ -76,6 +76,16 @@ exports.deleteUser = (req, res, next) => {
     });
 };
 
+exports.getAllUser = (req, res, next) => {
+    conn.query('SELECT id, username, email FROM user ', (error, result) => {
+        if (error) {
+            return res
+                .status(400)
+                .json({ error: "impossible d'afficher les listes des membres" });
+        }
+        return res.status(200).json(result);
+    });
+};;
 
 exports.getOneUser = (req, res, next) => {
     mySqlConnection.query('SELECT * FROM user WHERE id =?', req.params.id, (error, result) => {

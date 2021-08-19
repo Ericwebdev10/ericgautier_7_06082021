@@ -2,12 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 const auth = require('../middleware/auth');
-<<<<<<< HEAD
 
-=======
-// Controle si l'email de l'utilisateur est déja enregistrer
->>>>>>> dev
-const authcomm = require('../middleware/ownercomment');
+const authcomm = require('../middleware/isOwnerComment');
 const userCtrl = require('../controllers/comment');
 
 

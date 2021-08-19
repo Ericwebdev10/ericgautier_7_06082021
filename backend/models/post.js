@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-=======
-//const mysql = require('mysql2');
-
->>>>>>> dev
 
 const Post = function(post) {
     this.id = post.post_id;
