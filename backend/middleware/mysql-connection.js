@@ -15,7 +15,7 @@ mySqlConnection.connect(
             console.log("!!! Cannot connect to MySQL database");
             throw err;
         } else {
-            console.log("Connected to MySQL database!.");
+            console.log("Connected to MySQL database!");
         }
     });
 module.exports = mySqlConnection;

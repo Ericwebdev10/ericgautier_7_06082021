@@ -1,13 +1,12 @@
-const mongoose = require("mongoose"); //Mongoose is a MongoDB object modeling tool 
+//const mysql = require('mysql2');
 
-//Check that email is unique
-const uniqueValidator = require("mongoose-unique-validator"); //https://www.npmjs.com/package/mongoose-unique-validator
 
-const userSchema = mongoose.Schema({
-	email: { type: String, required: true, unique: true },
-	password: { type: String, required: true },
-});
+const User = function (user) {
+    this.id = user.id;
+    this.username = user.username;
+    this.email = user.email;
+    this.password = user.password;
+    this.isAdmin = user.isAdmin;
+};
 
-userSchema.plugin(uniqueValidator);
-
-module.exports = mongoose.model("User", userSchema);
+module.exports = User;
