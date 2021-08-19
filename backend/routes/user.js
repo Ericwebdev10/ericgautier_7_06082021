@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const limiter = require('../middleware/express-rate-limit'); //https://www.npmjs.com/package/express-rate-limit
-const userCtrl = require("../controllers/user");
+const userCtrl = require("../controllers/users");
 const passwordValidator = require('../middleware/password-validator'); //https://www.npmjs.com/package/password-validator
 const auth = require("../middleware/auth");
 const isUserOwner = require("../middleware/isUserOwner");
