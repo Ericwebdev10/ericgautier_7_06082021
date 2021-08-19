@@ -47,4 +47,11 @@ server.on("listening", () => {
 	console.log("Listening on " + bind);
 });
 
+// check port 3000
+app.get('/api', (req, res) => {
+    if (res) { res.send('Connected to API'); } else {
+        console.log("Cannot connect to the API");
+    }
+});
+
 server.listen(port);
