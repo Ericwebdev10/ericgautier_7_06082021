@@ -37,7 +37,7 @@ exports.getAllComm = (req, res, next) => {
 };
 
 exports.getOneComm = (req, res, next) => {
-    mySqlConnection.query('SELECT comment.id, comment.content, user_id, isAdmin  FROM comment INNER JOIN user ON user.id = comment.user_id WHERE comment.id=? ', req.params.id, (error, result) => {
+    mySqlConnection.query("SELECT comment.id, comment.content, user_id, isAdmin  FROM comment INNER JOIN user ON user.id = comment.user_id WHERE comment.id=? ", req.params.id, (error, result) => {
         if (error) {
             return res.status(400).json({ error: "Comments can not be posted" });
         }

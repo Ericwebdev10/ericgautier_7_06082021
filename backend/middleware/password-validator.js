@@ -1,12 +1,12 @@
-const passwordSchema = require('../models/passwordschema');
+const passwordSchema = require("../models/passwordschema");
 
 // check password according expected schema
 module.exports = (req, res, next) => {
     if (!passwordSchema.validate(req.body.password)) {
-        res.status(400).json({error : 'Password must have : '
+        res.status(400).json({error : "Password must have : "
             + passwordSchema.validate(req.body.password, {list : true})
         });
-//        console.log('Password not valid'); //debug to delete
+//        console.log("Password not valid"); //debug to delete
     } else {
         next();
     }
@@ -23,5 +23,5 @@ passwordSchema
     .has().lowercase()                              // Must have lowercase letters
     .has().digits(1)                                // Must have at least 1 digit
     .has().not().spaces()                           // Should not have spaces
-    .is().not().oneOf(['Passw0rd', 'Password123']); // Blacklist these values
+    .is().not().oneOf(["Passw0rd", "Password123"]); // Blacklist these values
  */

@@ -1,7 +1,7 @@
 const Post = require("../models/post");
 const mySqlConnection = require("../middleware/mysql-connection");
-require('dotenv').config();
-const fs = require('fs'); 
+require("dotenv").config();
+const fs = require("fs"); 
 
 
 exports.createPost = (req, res, next) => {
@@ -109,9 +109,9 @@ exports.deletePost = (req, res, next) => {
 //tout les posts
 exports.getAllPost = (req, res, next) => {
 
-    mySqlConnection.query('SELECT post.id, content, image, title, user_id, dateCreate, isAdmin, username  FROM post INNER JOIN user ON user.id = post.user_id ORDER BY dateCreate DESC', (error, result) => {
+    mySqlConnection.query("SELECT post.id, content, image, title, user_id, dateCreate, isAdmin, username  FROM post INNER JOIN user ON user.id = post.user_id ORDER BY dateCreate DESC", (error, result) => {
         if (error) {
-            return res.status(400).json({ error: "impossible d'afficher tous les post" });
+            return res.status(400).json({ error: "Cannot show all post" });
         }
         return res.status(200).json(result);
     });
@@ -120,9 +120,9 @@ exports.getAllPost = (req, res, next) => {
 exports.getOnePost = (req, res, next) => {
 
 
-    mySqlConnection.query('SELECT post.id, content, image, title, user_id, dateCreate, isAdmin, username FROM post INNER JOIN user ON user.id = post.user_id WHERE post.id=? ', req.params.id, (error, result) => {
+    mySqlConnection.query("SELECT post.id, content, image, title, user_id, dateCreate, isAdmin, username FROM post INNER JOIN user ON user.id = post.user_id WHERE post.id=? ", req.params.id, (error, result) => {
         if (error) {
-            return res.status(400).json({ error: "impossible d'afficher un  post" });
+            return res.status(400).json({ error: "Cannot show 1 post" });
         }
         return res.status(200).json(result);
     });

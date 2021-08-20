@@ -1,12 +1,12 @@
 //https://www.npmjs.com/package/mysql2
-const mysql = require('mysql2');
-require('dotenv').config();
+const mysql = require("mysql2");
+require("dotenv").config();
 
 const mySqlConnection = mysql.createConnection({
     host: process.env.DB_LOCALHOST,
     user: process.env.DB_IDENTIFIANT,
     password: process.env.DB_PASSWORD,
-    database: 'groupomania'
+    database: "groupomania"
 });
 
 // Check connection
