@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 
 const auth = require('../middleware/auth');
-// Controle si l'email de l'utilisateur est déja enregistrer
+
 const userCtrl = require('../controllers/post');
 const multer = require('../middleware/multer-config');
-const authpost = require('../middleware/isOwnerPost');
+const authpost = require('../middleware/ownerpost');
 
 router.post('/create', auth, multer, userCtrl.createPost);
 router.post('/update/:id', auth, multer, authpost, userCtrl.modifyPost);

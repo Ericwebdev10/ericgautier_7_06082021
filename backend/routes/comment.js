@@ -3,7 +3,7 @@ const router = express.Router();
 
 const auth = require('../middleware/auth');
 
-const authcomm = require('../middleware/isOwnerComment');
+const authcomm = require('../middleware/ownercomment');
 const userCtrl = require('../controllers/comment');
 
 

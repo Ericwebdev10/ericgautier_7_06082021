@@ -1,20 +1,22 @@
-const multer = require("multer");
+const multer = require("multer"); // permet de gerer les fichiers entrants dans les req http
 
 const MIME_TYPES = {
-	"image/jpg": "jpg",
-	"image/jpeg": "jpg",
-	"image/png": "png",
+    "image/jpg": "jpg",
+    "image/jpeg": "jpg",
+    "image/png": "png",
+    "image/webp": "webp",
+    "image/gif": "gif"
 };
 
 const storage = multer.diskStorage({
-	destination: (req, file, callback) => {
-		callback(null, "images");
-	},
-	filename: (req, file, callback) => {
-		const name = file.originalname.split(" ").join("_");
-		const extension = MIME_TYPES[file.mimetype];
-		callback(null, name + Date.now() + "." + extension);
-	},
+    destination: (req, file, callback) => {
+        callback(null, "images");
+    },
+    filename: (req, file, callback) => {
+        const name = file.originalname.split(" ").join("_"); //split et join pour eliminer le probleme des espaces
+        const extension = MIME_TYPES[file.mimetype];
+        callback(null, name + Date.now() + "." + extension);
+    }
 });
 
 module.exports = multer({ storage: storage }).single("image");

@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const User = require("../models/user");
+const User = require("../models/User");
 const mySqlConnection = require("../middleware/mysql-connection");
 const crypt = require('crypto-js'); //https://www.npmjs.com/package/crypto-js
 require('dotenv').config(); // needed?
@@ -77,11 +77,11 @@ exports.deleteUser = (req, res, next) => {
 };
 
 exports.getAllUser = (req, res, next) => {
-    conn.query('SELECT id, username, email FROM user ', (error, result) => {
+    mySqlConnection.query('SELECT id, username, email FROM user ', (error, result) => {
         if (error) {
             return res
                 .status(400)
-                .json({ error: "impossible d'afficher les listes des membres" });
+                .json({ error: "cannot show member list" });
         }
         return res.status(200).json(result);
     });

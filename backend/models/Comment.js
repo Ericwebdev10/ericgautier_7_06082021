@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-=======
-//const mysql = require('mysql2');
-
->>>>>>> dev
 
 const Comment = function (comment) {
     this.id = comment.id;

@@ -3,12 +3,13 @@ const mysql = require('mysql2');
 require('dotenv').config();
 
 const mySqlConnection = mysql.createConnection({
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
+    host: process.env.DB_LOCALHOST,
+    user: process.env.DB_IDENTIFIANT,
+    password: process.env.DB_PASSWORD,
     database: 'groupomania'
 });
 
-
+// Check connection
 mySqlConnection.connect(
     function(err) {
         if (err) {
