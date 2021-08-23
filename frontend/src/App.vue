@@ -1,35 +1,44 @@
 <template>
   <div id="app">
     <header id="header">
-      <img id="logo" alt="logo Groupomania" src="../src/assets/icon-left-font-monochrome-white.svg" />
+      <img class="logo" alt="Vue logo" src="../src/assets/icon-left-font-monochrome-white.svg" />
     </header>
+    <div id="testConnection"></div>
+    <router-view />
   </div>
-  <router-view></router-view>
 </template>
-
 <script>
+import axios from "axios";
+
 export default {
-  name: "App",
-  components: {},
+  data() {
+    return {
+      conn: "",
+    };
+  },
+  created() {
+    axios
+      .get(this.$localhost + "api/")
+
+      .then((response) => (this.conn = response.data))
+      .catch((error) => {
+        console.log(error);
+        document.getElementById("testConnection").innerHTML = "!!! Cannot reach server !!!";
+      });
+  },
 };
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;800&display=swap");
-
-* {
-  font-family: "Poppins", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 #app {
-  max-width: 100%;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
 }
 
 body {
-  background-image: linear-gradient(0deg, #b87efb 0%, #f7ce68 100%);
+  background-image: linear-gradient(60deg, #b87efb 0%, #f7ce68 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,66 +46,39 @@ body {
   padding: 32px;
 }
 
-img {
-  max-width: 100%;
-  border-radius: 8px;
-}
 
-#logo {
-	width: 300px;
-}
-
-.card {
-  max-width: 100%;
-  width: 540px;
-  background: white;
-  border-radius: 16px;
-  padding: 32px;
-}
-
-.card__title {
+#header {
   text-align: center;
-  font-weight: 800;
+}
+#nav {
+  padding: 0px;
 }
 
-.card__subtitle {
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+.logo {
+  margin: 20px;
+}
+.navigation {
+  text-align: left;
+}
+.btn-primary {
+  background-color: #1956c8 !important;
+  font-weight: 600;
+}
+#testConnection {
   text-align: center;
-  color: #666;
-  font-weight: 500;
+  font-size: 24px;
+  color: rgb(255, 0, 64);
 }
-
-.button {
-  background: #2196f3;
-  color: white;
-  border-radius: 8px;
-  font-weight: 800;
-  font-size: 15px;
-  border: none;
-  width: 100%;
-  padding: 16px;
-  transition: 0.4s background-color;
-}
-
-.card__action {
-  color: #2196f3;
-  text-decoration: underline;
-}
-
-.card__action:hover {
-  cursor: pointer;
-}
-
-.button:hover {
-  cursor: pointer;
-  background: #1976d2;
-}
-
-.button--disabled {
-  background: #cecece;
-  color: #ececec;
-}
-.button--disabled:hover {
-  cursor: not-allowed;
-  background: #cecece;
+@media (min-width: 1024px) {
+  .logo {
+    width: 50%;
+  }
 }
 </style>

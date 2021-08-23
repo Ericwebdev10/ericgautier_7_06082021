@@ -5,24 +5,30 @@
       <span id="notfound" class="error"> </span>
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" class="form-control" v-model="email" id="email" placeholder="email@gmail.com" aria-required="true" required /><br>
+        <input type="email" class="form-control" v-model="email" id="email" placeholder="email@example.com" aria-required="true" required /><br>
         <span class="error" v-if="(!$v.email.required && $v.email.$dirty)">Enter a valid email</span>
+      </div>
+      <div class="form-group">
+        <label for="username">First name - last name</label>
+        <input type="text" class="form-control" id="username" v-model="username" name="username" placeholder="John Doe" aria-required="true" required /><br>
+        <span class="error" v-if="(!$v.username.required && $v.username.$dirty)">Add your first name and last name </span>
       </div>
       <div class="form-group">
         <label for="password">Password</label>
         <input type="password" class="form-control" v-model="password" id="password" placeholder="Password" aria-required="true" required /><br>
         <span class="error" v-if="(!$v.password.required && $v.password.$dirty )">Min length : 8, 1 uppercase, 1 lowercase. no space, 1 digit </span>
         <span class="error" v-if="(!$v.password.valid && !$v.password.minLength )">Min length : 8, 1 uppercase, 1 lowercase. no space, 1 digit </span>
+
       </div>
-      <button type="submit" class="btn btn-primary signup" v-on:click="loginUser()">
-        Connect here
-      </button><br>
+      <button type="submit" class="btn btn-primary signup" @click="createUser()">
+        Register here
+      </button>
     </form>
     <div class="dropdown-divider separation"></div>
     <p class="dropdown-item encouragement">
-      Not registered yet? Create your account here !
+      Already have an account? connect here !
     </p>
-    <router-link class="btn btn-primary" to="/Signup">Register</router-link>
+    <router-link class="btn btn-primary" to="/">Connect</router-link>
 
     <Footer />
   </main>
@@ -36,14 +42,16 @@ import {
   minLength,
   maxLength,
 } from "vuelidate/lib/validators";
+
 export default {
-  name: "Login",
+  name: "Signup",
   components: {
     Footer,
   },
   data() {
     return {
       email: "",
+      username: "",
       password: "",
     };
   },
@@ -52,13 +60,15 @@ export default {
       required,
       email,
     },
+    username: {
+      required,
+    },
     password: {
       required,
       valid: function (value) {
         const containsUppercase = /[A-Z]/.test(value);
         const containsLowercase = /[a-z]/.test(value);
         const containsNumber = /[0-9]/.test(value);
-
         return containsUppercase && containsLowercase && containsNumber;
       },
       minLength: minLength(8),
@@ -66,72 +76,47 @@ export default {
     },
   },
   methods: {
-    loginUser() {
+    
+    createUser() {
       this.submited = true;
       this.$v.$touch();
       if (!this.$v.$invalid) {
         const email = document.querySelector("#email").value;
         const password = document.querySelector("#password").value;
-        const user = {
+        const username = document.querySelector("#username").value;
+        let users = {
           email: email,
           password: password,
+          username: username,
         };
-
+        // check all required fields
+        if (users.email == "" || users.password == "" || users.username == "") {
+          users = {
+            userVerification: false,
+          };
+        } // Post new user
         axios
-          .post(this.$localhost + "api/auth/login", user, {
-            header: {
-              "Content-Type": "application/json",
-            },
-          })
+          .post(this.$localhost + "api/auth/signup", users)
           .then((res) => {
-            localStorage.setItem("token", res.data.token);
-            this.$router.push("/Home");
+            console.log(res);
+            this.$router.push("/Login");
           })
           .catch((error) => {
             console.log(error);
             document.getElementById("notfound").innerHTML =
-              "User not found";
+              "Cannot create user";
           });
-      } else {
-        document.getElementById("notfound").innerHTML =
-          "User not found";
       }
     },
   },
 };
 </script>
-
 <style scoped>
 #app {
   text-align: center;
 }
-.signin {
-  width: 50%;
-  margin: 70px auto auto auto;
-}
-.signup {
-  margin-bottom: 40px;
-}
-.separation {
-  margin-bottom: 50px;
-  padding-bottom: 3em;
-}
-.encouragement {
-  padding: 0 !important;
-}
 .error {
   color: red;
   font-size: 2em;
-}
-@media (max-width: 1024px) {
-  .signin {
-    width: 100%;
-    margin: 0;
-  }
-}
-@media (max-width: 1024px) {
-  h1 {
-    font-size: 20px !important;
-  }
 }
 </style>
