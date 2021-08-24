@@ -31,4 +31,54 @@
 
 </template>
 <script>
+import axios from "axios";
+import VueJwtDecode from "vue-jwt-decode";
+
+export default {
+  name: "AllPost",
+  data() {
+    return {
+      arts: [],
+      imgoff: 0,
+      usersid: VueJwtDecode.decode(localStorage.getItem("token")).userId,
+      isAdmin: VueJwtDecode.decode(localStorage.getItem("token")).isAdmin,
+    };
+  },
+  mounted() {
+    this.getAllPost();
+  },
+}
+</script>
+<style scoped>
+.card-product {
+  display: flex;
+  border-radius: 20px 20px;
+  width: 50%;
+}
+.product-img {
+  object-fit: contain;
+}
+.userinfo {
+  margin-right: 15px;
+}
+
+.dropdown-divider {
+  margin: 1em;
+}
+
+@media (min-width: 320px) and (max-width: 1000px) {
+  .card-product {
+    margin: 90px auto auto auto;
+    flex-direction: column;
+    border-radius: 20px 20px;
+    width: 80%;
+  }
+  .product-img {
+    width: 100%;
+    object-fit: contain;
+  }
+}
+</style>
+
+
 
