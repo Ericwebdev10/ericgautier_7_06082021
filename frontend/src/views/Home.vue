@@ -1,7 +1,8 @@
 <template>
   <div class="Home">
     <h1>Welcome to Groupomania social network</h1>
-
+    <Nav />
+    <Footer />
   </div>
 </template>
 

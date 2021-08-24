@@ -18,8 +18,8 @@
         Connect here
       </button><br>
     </form>
-    <div class="dropdown-divider separation"></div>
-    <p class="dropdown-item encouragement">
+    <div class="dropdown-divider"></div>
+    <p class="dropdown-item">
       Not registered yet? Create your account here !
     </p>
     <router-link class="btn btn-primary" to="/Signup">Register</router-link>
@@ -116,9 +116,7 @@ export default {
   margin-bottom: 50px;
   padding-bottom: 3em;
 }
-.encouragement {
-  padding: 0 !important;
-}
+
 .error {
   color: red;
   font-size: 2em;

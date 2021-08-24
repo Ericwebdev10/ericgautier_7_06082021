@@ -8,10 +8,10 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <router-link class="nav-link" :to="`/user/${usersid}`">User Profile</router-link>
+            <router-link class="nav-link" to="/Home">Home</router-link>
           </li>
           <li class="nav-item active">
-            <router-link class="nav-link" to="/Home">Home</router-link>
+            <router-link class="nav-link" :to="`/user/${usersid}`">User Profile</router-link>
           </li>
           <li class="nav-item active">
             <button class="nav-link btn btn-primary" @click="Logout()">Logout</button>

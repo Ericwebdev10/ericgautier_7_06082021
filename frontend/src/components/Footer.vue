@@ -18,7 +18,7 @@ export default {
 <style scoped>
 .footer {
   margin-top: 75px;
-  background: #5c4aaf;
+  background: #000000;
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
@@ -29,7 +29,6 @@ ul {
   justify-content: space-around;
   list-style: none;
   font-size: 1.3em;
-
 }
 li {
   margin: auto 10px auto 10px;
