@@ -1,43 +1,55 @@
 <template>
-  <div class="groupomaniaNavBar">
-       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <a class="navbar-brand" href="index.html"><img src="assets/logo.jpg" height="50" alt="Logo panier" /></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active"><a class="nav-link" href="index.html">Accueil</a></li>
-                        <li class="nav-item" id="itemsQtyInCart">
-                            <a class="nav-link" href="shoppingcart.html">
-                                Panier
-                                <span class="sr-only">(current)</span>
-                                <img src="assets/cart.jpg" height="20" alt="Logo panier" />
-                            </a>
-                        </li>
-                        <li class="nav-item"><a class="nav-link disabled" href="ordersummary.html">Commande</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    
-    
+  <div class="navigation">
+    <nav class="navbar navbar-expand-md d-flex justify-content-between fixed-top bg-dark">
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <router-link class="nav-link" :to="`/user/${usersid}`">User Profile</router-link>
+          </li>
+          <li class="nav-item active">
+            <router-link class="nav-link" to="/Home">Home</router-link>
+          </li>
+          <li class="nav-item active">
+            <button class="nav-link btn btn-primary" @click="Logout()">Logout</button>
+          </li>
+        </ul>
+      </div>
+    </nav>
   </div>
 </template>
-
 <script>
+import VueJwtDecode from "vue-jwt-decode";
+
 export default {
-  name: 'Nav',
-  props: {
-    msg: String
+  name: "Nav",
+  data() {
+    return {
+      usersid: VueJwtDecode.decode(localStorage.getItem("token")).userId,
+    };
+  },
+  methods: {
+    Logout() {
+      localStorage.clear();
+      this.$router.push("/");
+    },
+  },
+};
+</script>
+<style scoped>
+img {
+  width: 10%;
+}
+@media (min-width: 768px) {
+  img {
+    width: 5%;
   }
 }
-</script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-h1 {
-  margin-top: -20px;
-  color: #42b983;
+button {
+  border: none !important;
+  background-color: rgb(235, 27, 114) !important;
 }
-
 </style>

@@ -62,7 +62,7 @@ body {
   color: #42b983;
 }
 .logo {
-  margin: 20px;
+  margin-top: 60px;
 }
 .navigation {
   text-align: left;
