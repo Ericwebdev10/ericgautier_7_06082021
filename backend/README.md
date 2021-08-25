@@ -1,4 +1,4 @@
-#backend#
+# backend
 
 1- Clone the repository.
 2- Prerequisite :
@@ -25,5 +25,3 @@
 
 Then start the server with : 
 - nodemon server
-
-Open your browser : http://localhost:8080/

@@ -1,24 +1,16 @@
-# frontend
 
-## Project setup
-```
-npm install
-```
+# Frontend
+1- Clone the repository.
+2- Prerequisite :
+- npm install -g @vue/cli
+- vue add router
+- vue add vuex  
+- npm install --save axios vue-axios
+- npm install --save vuelidate
+- npm install --save vue-jwt-decode
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Then compile with : 
+- npm run serve
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Open your browser : http://localhost:8080/
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

@@ -5,26 +5,64 @@
       <span id="notfound" class="error"> </span>
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" class="form-control" v-model="email" id="email" placeholder="email@example.com" aria-required="true" required /><br>
-        <span class="error" v-if="(!$v.email.required && $v.email.$dirty)">Enter a valid email</span>
+        <input
+          type="email"
+          class="form-control"
+          v-model="email"
+          id="email"
+          placeholder="email@example.com"
+          aria-required="true"
+          required
+        /><br />
+        <span class="error" v-if="!$v.email.required && $v.email.$dirty"
+          >Enter a valid email</span
+        >
       </div>
       <div class="form-group">
         <label for="username">First name - last name</label>
-        <input type="text" class="form-control" id="username" v-model="username" name="username" placeholder="John Doe" aria-required="true" required /><br>
-        <span class="error" v-if="(!$v.username.required && $v.username.$dirty)">Add your first name and last name </span>
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          v-model="username"
+          name="username"
+          placeholder="John Doe"
+          aria-required="true"
+          required
+        /><br />
+        <span class="error" v-if="!$v.username.required && $v.username.$dirty"
+          >Add your first name and last name
+        </span>
       </div>
+      <!--https://vuelidate.js.org/#sub-without-v-model-->
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" class="form-control" v-model="password" id="password" placeholder="Password" aria-required="true" required /><br>
-        <span class="error" v-if="(!$v.password.required && $v.password.$dirty )">Min length : 8, 1 uppercase, 1 lowercase. no space, 1 digit </span>
-        <span class="error" v-if="(!$v.password.valid && !$v.password.minLength )">Min length : 8, 1 uppercase, 1 lowercase. no space, 1 digit </span>
-
+        <input
+          type="password"
+          class="form-control"
+          v-model="password"
+          id="password"
+          placeholder="Password"
+          aria-required="true"
+          required
+        /><br />
+        <span class="error" v-if="!$v.password.required && $v.password.$dirty"
+          >Min length : 8, 1 uppercase, 1 lowercase. no space, 1 digit
+        </span>
+        <span class="error" v-if="!$v.password.valid && !$v.password.minLength"
+          >Min length : 8, 1 uppercase, 1 lowercase. no space, 1 digit
+        </span>
       </div>
-      <button type="submit" class="btn btn-primary signup" @click="createUser()">
+      <!--https://vuelidate.js.org/#sub-without-v-model-->
+      <button
+        type="submit"
+        class="btn btn-primary signup"
+        @click="createUser()"
+      >
         Register here
       </button>
     </form>
-    <div class="dropdown-divider separation"></div>
+    <div class="dropdown-divider"></div>
     <p class="dropdown-item encouragement">
       Already have an account? connect here !
     </p>
@@ -76,7 +114,6 @@ export default {
     },
   },
   methods: {
-    
     createUser() {
       this.submited = true;
       this.$v.$touch();

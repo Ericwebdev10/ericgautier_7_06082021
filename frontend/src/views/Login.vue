@@ -15,10 +15,10 @@
         <span class="error" v-if="(!$v.password.valid && !$v.password.minLength )">Min length : 8, 1 uppercase, 1 lowercase. no space, 1 digit </span>
       </div>
       <button type="submit" class="btn btn-primary signup" v-on:click="loginUser()">
-        Connect here
+        Connect
       </button><br>
     </form>
-    <div class="dropdown-divider"></div>
+
     <p class="dropdown-item">
       Not registered yet? Create your account here !
     </p>
@@ -112,10 +112,6 @@ export default {
 .signup {
   margin-bottom: 40px;
 }
-.separation {
-  margin-bottom: 50px;
-  padding-bottom: 3em;
-}
 
 .error {
   color: red;
@@ -129,7 +125,7 @@ export default {
 }
 @media (max-width: 1024px) {
   h1 {
-    font-size: 20px !important;
+    font-size: 1em !important;
   }
 }
 </style>

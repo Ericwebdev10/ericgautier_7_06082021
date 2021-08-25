@@ -2,7 +2,6 @@
   <div class="Home">
     <h1>Groupomania social network</h1>
     <Nav />
-
     <CreatePost />
     <AllPost />
     <Footer />
