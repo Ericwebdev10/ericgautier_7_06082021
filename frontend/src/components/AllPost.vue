@@ -1,34 +1,43 @@
 <template>
   <div class="mx-auto">
-
-    <div :id="art.id" v-for="(art,idx) in arts" :key="idx">
-
+    <div :id="art.id" v-for="(art, idx) in arts" :key="idx">
       <div class="card card-product mx-auto">
-
-        <div class="card-body product-body">
-          <h2 class="card-title name">{{ art.title }}</h2>
+        <div class="card-body product-bod">
+          <h2 class="card-title text-white bg-info rounded text-center">
+            <i class="fas fa-rss"></i> {{ art.title }}
+          </h2>
           <div class="dropdown-divider"></div>
-          <p class="card-text price">{{ art.content}}</p>
+          <p class="card-text price">{{ art.content }}</p>
           <div>
-            <img class="card-img-top product-img" :alt="art.id" :src="art.image" v-if="art.image != 0" />
+            <img
+              class="card-img-top product-img"
+              :alt="art.id"
+              :src="art.image"
+              v-if="art.image != 0"
+            />
           </div>
           <div class="dropdown-divider"></div>
           <ul class="navbar-nav mt-2 mt-lg-0 flex-row">
             <li class="nav-item active userinfo">
-              <p>Posted by <span> {{art.username}}</span> </p>
+              <p>
+                Posted by <span> {{ art.username }}</span>
+              </p>
             </li>
             <li class="nav-item">
-              <span class=""> {{ datePost(art.dateCreate)}} </span>
+              <span class=""> {{ datePost(art.dateCreate) }} </span>
             </li>
           </ul>
-          <router-link class="btn btn-danger name mt-5 text-center d-block " :to="`/post/${art.id}`">Comment</router-link>
+          <router-link
+            class="btn btn-info mt-5 text-center d-block"
+            :to="`/post/${art.id}`"
+            >Comment</router-link
+          >
         </div>
       </div>
 
       <div class="dropdown-divider"></div>
     </div>
   </div>
-
 </template>
 <script>
 import axios from "axios";
@@ -47,7 +56,43 @@ export default {
   mounted() {
     this.getAllPost();
   },
-}
+  methods: {
+    async getAllPost() {
+      const token = localStorage.getItem("token");
+
+      if (token) {
+        axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+      } else {
+        axios.defaults.headers.common["Authorization"] = null;
+        this.$router.push("/");
+      }
+
+      axios
+        .get(this.$localhost + "api/post/", {
+          headers: {
+            Authorization: "bearer " + token,
+          },
+        })
+        .then((res) => {
+          this.arts = res.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    datePost(date) {
+      const event = new Date(date);
+      const options = {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+      };
+      return event.toLocaleDateString("fr-Fr", options);
+    },
+  },
+};
 </script>
 <style scoped>
 .card-product {
