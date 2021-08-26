@@ -183,7 +183,8 @@ export default {
 <style scoped>
 h1 {
   text-align: center;
-  font-size: 18px;
+  font-size: 1.2em;
+  font-weight: bolder;
 }
 
 .card-product {
@@ -198,10 +199,7 @@ h1 {
 .userinfo {
   margin-right: 15px;
 }
-h1 {
-  text-align: center;
-  font-size: 18px;
-}
+
 .error {
   color: red;
 }

@@ -28,7 +28,7 @@
             </li>
           </ul>
           <router-link
-            class="btn btn-info mt-5 text-center d-block"
+            class="btn btn-info mt-5 text-center d-block fontplus"
             :to="`/post/${art.id}`"
             >Comment</router-link
           >
@@ -109,6 +109,9 @@ export default {
 
 .dropdown-divider {
   margin: 1em;
+}
+.fontplus {
+  font-size: 1.5em;
 }
 
 @media (min-width: 320px) and (max-width: 1000px) {
