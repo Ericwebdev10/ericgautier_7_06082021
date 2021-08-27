@@ -5,7 +5,10 @@
         <li><i class="fas fa-address-card"></i>&nbsp; A propos</li>
         <li><i class="fas fa-hands-helping"></i> Devenir partenaire</li>
         <li><i class="fas fa-balance-scale"></i> Mentions légales</li>
-        <li><i class="fas fa-envelope"></i><a href="mailto:contact@groupomania.com">&nbsp; Contact</a></li>
+        <li>
+          <i class="fas fa-envelope"></i
+          ><a href="mailto:contact@groupomania.com">&nbsp; Contact</a>
+        </li>
       </ul>
     </footer>
   </div>
@@ -22,7 +25,6 @@ export default {
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
-
 
 ul {
   display: flex;

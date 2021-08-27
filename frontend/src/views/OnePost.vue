@@ -305,8 +305,7 @@ export default {
 }
 h1 {
   text-align: center;
-  font-size: 1.2em;
-  font-weight: bolder;
+  font-size: 1.6em;
 }
 
 .error {

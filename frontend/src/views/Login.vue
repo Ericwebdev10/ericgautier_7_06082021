@@ -5,23 +5,47 @@
       <span id="notfound" class="error"> </span>
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" class="form-control" v-model="email" id="email" placeholder="email@gmail.com" aria-required="true" required /><br>
-        <span class="error" v-if="(!$v.email.required && $v.email.$dirty)">Enter a valid email</span>
+        <input
+          type="email"
+          class="form-control"
+          v-model="email"
+          id="email"
+          placeholder="email@gmail.com"
+          aria-required="true"
+          required
+        /><br />
+        <span class="error" v-if="!$v.email.required && $v.email.$dirty"
+          >Enter a valid email</span
+        >
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" class="form-control" v-model="password" id="password" placeholder="Password" aria-required="true" required /><br>
-        <span class="error" v-if="(!$v.password.required && $v.password.$dirty )">Min length : 8, 1 uppercase, 1 lowercase. no space, 1 digit </span>
-        <span class="error" v-if="(!$v.password.valid && !$v.password.minLength )">Min length : 8, 1 uppercase, 1 lowercase. no space, 1 digit </span>
+        <input
+          type="password"
+          class="form-control"
+          v-model="password"
+          id="password"
+          placeholder="Password"
+          aria-required="true"
+          required
+        /><br />
+        <span class="error" v-if="!$v.password.required && $v.password.$dirty"
+          >Min length : 8, 1 uppercase, 1 lowercase. no space, 1 digit
+        </span>
+        <span class="error" v-if="!$v.password.valid && !$v.password.minLength"
+          >Min length : 8, 1 uppercase, 1 lowercase. no space, 1 digit
+        </span>
       </div>
-      <button type="submit" class="btn btn-primary signup" v-on:click="loginUser()">
-        Connect
-      </button><br>
+      <button
+        type="submit"
+        class="btn btn-primary signup"
+        v-on:click="loginUser()"
+      >
+        Connect</button
+      ><br />
     </form>
 
-    <p class="dropdown-item">
-      Not registered yet? Create your account here !
-    </p>
+    <p class="dropdown-item">Not registered yet? Create your account here !</p>
     <router-link class="btn btn-primary" to="/Signup">Register</router-link>
 
     <Footer />
@@ -89,12 +113,10 @@ export default {
           })
           .catch((error) => {
             console.log(error);
-            document.getElementById("notfound").innerHTML =
-              "User not found";
+            document.getElementById("notfound").innerHTML = "User not found";
           });
       } else {
-        document.getElementById("notfound").innerHTML =
-          "User not found";
+        document.getElementById("notfound").innerHTML = "User not found";
       }
     },
   },
@@ -125,8 +147,7 @@ export default {
 }
 @media (max-width: 1024px) {
   h1 {
-    font-size: 1.2em !important;
-    font-weight: bolder;
+  font-size: 1.6em;
   }
 }
 </style>

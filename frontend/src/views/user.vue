@@ -15,20 +15,20 @@
             <div class="mt-5">
 
               <div class="form-group">
-                <label for="email">Changer mon Adresse Email</label>
+                <label for="email">Change my email address</label>
                 <input type="email" class="form-control" v-model="email" id="email" placeholder="email@example.com" required /><br>
-                <span class="error" v-if="(!$v.email.required && $v.email.$dirty)">Veuillez ajouter un email valide</span>
+                <span class="error" v-if="(!$v.email.required && $v.email.$dirty)">Email address not valid</span>
               </div>
 
               <div class="form-group">
-                <label for="password">Changer mon Mot de passe</label>
+                <label for="password">Change my password</label>
                 <input type="password" class="form-control" v-model="password" id="password" placeholder="Password" required /><br>
-                <span class="error" v-if="(!$v.password.required && $v.password.$dirty )">Mot de passe requis : 8 caractères minimun. Au moins 1 Majuscule, 1 minuscule. Sans espaces et 1 chiffres </span>
-                <span class="error" v-if="(!$v.password.valid && !$v.password.minLength )">Mot de passe requis : 8 caractères minimun. Au moins 1 Majuscule, 1 minuscule. Sans espaces et 1 chiffres </span>
+                <span class="error" v-if="(!$v.password.required && $v.password.$dirty )">Min length : 8, 1 uppercase, 1 lowercase. no space, 1 digit </span>
+                <span class="error" v-if="(!$v.password.valid && !$v.password.minLength )">Min length : 8, 1 uppercase, 1 lowercase. no space, 1 digit </span>
               </div>
             </div>
-            <button class="btn btn-danger mr-5 mt-2" v-if="userId == user.id || admin == 1" @click="updateUser()">modifier mon compte</button>
-            <button class="btn btn-danger mt-2" v-if="userId == user.id || admin == 1" @click="deleteuser()">Supprimer mon compte</button>
+            <button class="btn btn-warning mr-5 mt-2" v-if="userId == user.id || admin == 1" @click="updateUser()">Apply changes</button>
+            <button class="btn btn-danger mt-2" v-if="userId == user.id || admin == 1" @click="deleteuser()">Delete account</button>
 
           </div>
 
@@ -183,8 +183,7 @@ export default {
 <style scoped>
 h1 {
   text-align: center;
-  font-size: 1.2em;
-  font-weight: bolder;
+  font-size: 1.6em;
 }
 
 .card-product {
@@ -199,7 +198,6 @@ h1 {
 .userinfo {
   margin-right: 15px;
 }
-
 .error {
   color: red;
 }
