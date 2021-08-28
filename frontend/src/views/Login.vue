@@ -147,7 +147,7 @@ export default {
 }
 @media (max-width: 1024px) {
   h1 {
-  font-size: 1.6em;
+    font-size: 1.6em;
   }
 }
 </style>

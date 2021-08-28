@@ -1,14 +1,18 @@
 <template>
   <div id="app">
     <header id="header">
-      <img class="logo" alt="Vue logo" src="../src/assets/icon-left-font-monochrome-white.svg" />
+      <img
+        class="logo"
+        alt="Vue logo"
+        src="../src/assets/icon-left-font-monochrome-white.svg"
+      />
     </header>
     <div id="testConnection"></div>
     <router-view />
   </div>
 </template>
 <script>
-import axios from "axios";
+import axios from "axios"; //https://www.npmjs.com/package/axios
 
 export default {
   data() {
@@ -23,7 +27,8 @@ export default {
       .then((response) => (this.conn = response.data))
       .catch((error) => {
         console.log(error);
-        document.getElementById("testConnection").innerHTML = "!!! Cannot reach server !!!";
+        document.getElementById("testConnection").innerHTML =
+          "!!! Cannot reach server !!!";
       });
   },
 };
@@ -45,7 +50,6 @@ body {
   min-height: 100vh;
   padding: 32px;
 }
-
 
 #header {
   text-align: center;

@@ -2,7 +2,7 @@
   <main id="app">
     <h1>Welcome to Groupomania social network</h1>
     <form class="px-4 py-3 signin">
-      <span id="notfound" class="error"> </span>
+      <span id="ErrorHandler" class="error"> </span>
       <div class="form-group">
         <label for="email">Email</label>
         <input
@@ -34,7 +34,7 @@
           >Add your first name and last name
         </span>
       </div>
-      <!--https://vuelidate.js.org/#sub-without-v-model-->
+     
       <div class="form-group">
         <label for="password">Password</label>
         <input
@@ -140,8 +140,8 @@ export default {
           })
           .catch((error) => {
             console.log(error);
-            document.getElementById("notfound").innerHTML =
-              "Cannot create user";
+            document.getElementById("ErrorHandler").innerHTML =
+              "Cannot create user / email must be unique";
           });
       }
     },

@@ -3,10 +3,10 @@ const mysql = require("mysql2");
 require("dotenv").config();
 
 const mySqlConnection = mysql.createConnection({
-    host: process.env.DB_LOCALHOST,
-    user: process.env.DB_IDENTIFIANT,
-    password: process.env.DB_PASSWORD,
-    database: "groupomania"
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME
 });
 
 // Check connection

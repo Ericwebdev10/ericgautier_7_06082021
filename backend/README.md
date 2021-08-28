@@ -21,6 +21,7 @@
 - DB_USER=
 - DB_PASS=
 - DB_TOKEN=
+- DB_HOST= only if different from @localhost
 
 
 Then start the server with : 
