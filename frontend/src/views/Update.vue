@@ -6,18 +6,55 @@
       <form class="px-4 py-3 Post" id="formpost" encType="multipart/form-data">
         <div class="form-group">
           <label for="title">Titre</label>
-          <input type="text" class="form-control" v-model="title" id="title" placeholder="votre titre" aria-required="true" required />
-          <span class="error" v-if="(!$v.title.required && $v.title.$dirty)">Veuillez ajouter un titre</span>
+          <input
+            type="text"
+            class="form-control"
+            v-model="title"
+            id="title"
+            placeholder="votre titre"
+            aria-required="true"
+            required
+          />
+          <span class="error" v-if="!$v.title.required && $v.title.$dirty"
+            >Veuillez ajouter un titre</span
+          >
         </div>
         <div class="form-group">
           <label for="content">Texte</label>
-          <textarea class="form-control textarea " rows="3" id="content" placeholder="Modifier votre text...ou modifier votre image" aria-required="true"></textarea>
+          <textarea
+            class="form-control textarea"
+            rows="3"
+            id="content"
+            placeholder="Modifier votre text...ou modifier votre image"
+            aria-required="true"
+          ></textarea>
         </div>
         <div class="form-group">
-          <label for="image" class="sr-only" title="image" role="button">images</label>
-          <input type="file" accept=".png, .jpg, .jpeg, .gif, .webp" v-on:change="onSelect" aria-required="true" ref="file" id="image" />
+          <label for="image" class="sr-only" title="image" role="button"
+            >images</label
+          >
+          <input
+            type="file"
+            accept=".png, .jpg, .jpeg, .gif, .webp"
+            v-on:change="onSelect"
+            aria-required="true"
+            ref="file"
+            id="image"
+          />
         </div>
-        <button type="submit" class="btn btn-danger signup" @click="updateForm()">Modifier</button><button type="submit" class="btn btn-danger signup ml-5" @click="deleteForm()">Supprimer</button>
+        <button
+          type="submit"
+          class="btn btn-danger signup"
+          @click="updateForm()"
+        >
+          Modifier</button
+        ><button
+          type="submit"
+          class="btn btn-danger signup ml-5"
+          @click="deleteForm()"
+        >
+          Supprimer
+        </button>
       </form>
       <Footer />
     </div>

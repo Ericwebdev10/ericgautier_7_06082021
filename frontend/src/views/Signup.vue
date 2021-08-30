@@ -34,7 +34,7 @@
           >Add your first name and last name
         </span>
       </div>
-     
+
       <div class="form-group">
         <label for="password">Password</label>
         <input

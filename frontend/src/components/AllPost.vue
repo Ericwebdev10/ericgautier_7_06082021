@@ -119,7 +119,7 @@ export default {
     margin: 90px auto auto auto;
     flex-direction: column;
     border-radius: 20px 20px;
-    width: 80%;
+    width: 60%;
   }
   .product-img {
     width: 100%;

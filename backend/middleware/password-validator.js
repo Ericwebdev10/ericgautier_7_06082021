@@ -2,14 +2,16 @@ const passwordSchema = require("../models/passwordschema");
 
 // check password according expected schema
 module.exports = (req, res, next) => {
-    if (!passwordSchema.validate(req.body.password)) {
-        res.status(400).json({error : "Password must have : "
-            + passwordSchema.validate(req.body.password, {list : true})
-        });
-//        console.log("Password not valid"); //debug to delete
-    } else {
-        next();
-    }
+	if (!passwordSchema.validate(req.body.password)) {
+		res.status(400).json({
+			error:
+				"Password must have : " +
+				passwordSchema.validate(req.body.password, { list: true }),
+		});
+		//        console.log("Password not valid"); //debug to delete
+	} else {
+		next();
+	}
 };
 
 //https://openclassrooms.workplace.com/search/top?q=password
