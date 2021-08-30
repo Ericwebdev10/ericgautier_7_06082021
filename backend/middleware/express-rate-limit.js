@@ -5,13 +5,12 @@ const rateLimit = require("express-rate-limit");
 // app.set("trust proxy", 1);
 
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 10 // limit each IP to 10 requests per windowMs
+	windowMs: 15 * 60 * 1000, // 15 minutes
+	max: 10, // limit each IP to 10 requests per windowMs
 });
 
 // apply to all login requests
 module.exports = rateLimit(limiter);
-
 
 //https://www.npmjs.com/package/express-rate-limit
 // => response if exceeded : 429 Too Many Requests

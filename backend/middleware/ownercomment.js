@@ -10,10 +10,10 @@ module.exports = (req, res, next) => {
     const isAdmin = decodedToken.isAdmin;
     mySqlConnection.query("SELECT comment.id, user_id FROM comment INNER JOIN user ON user.id = comment.user_id WHERE comment.id=? ", req.params.id, (error, result) => {
         if ((result[0].user_id === userId) || isAdmin === 1) {
-            console.log("Action autorized");
+            console.log("Action authorized");
             next();
         } else {
-            res.status(403).json({ message: "Action NOT autorized" });
+            res.status(403).json({ message: "Action NOT authorized" });
         }
     });
 
