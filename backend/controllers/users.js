@@ -5,7 +5,6 @@ const mySqlConnection = require("../middleware/mysql-connection");
 const crypt = require("crypto-js"); //https://www.npmjs.com/package/crypto-js
 require("dotenv").config(); // needed?
 
-//https://www.npmjs.com/package/crypto-js
 //crypto email + bcrypt password
 exports.signup = (req, res, next) => {
     const cryptoEmail = crypt.MD5(req.body.email).toString();
@@ -41,12 +40,6 @@ exports.login = async(req, res, next) => {
                             res.status(401).json({ message: "Incorrect password" });
                         } else {
                             console.log(cryptoEmail, "connected");
-                            //if admin
-                            if (results[0].isAdmin === 1) {
-                                status = "administrateur";
-                            } else {
-                                status = "membre";
-                            }
                             res.status(200).json({
                                 userId: results[0].id,
                                 email: results[0].email,
