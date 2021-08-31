@@ -40,6 +40,7 @@
             ref="file"
             aria-required="true"
             id="image"
+            lang="en"
           />
         </div>
         <span class="error" v-if="!$v.content.required && $v.content.$dirty"

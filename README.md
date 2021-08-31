@@ -15,9 +15,7 @@ Then compile with :
 Open your browser : http://localhost:8080/
 
 
-
 # backend
-
 1- Clone the repository.
 2- Prerequisite :
 - Npm init => entry point: (index.js) server.js
@@ -41,6 +39,9 @@ Open your browser : http://localhost:8080/
 - DB_TOKEN=
 - DB_HOST= only if different from @localhost
 
-
 Then start the server with : 
 - nodemon server
+
+
+# mySQL
+- Import groupomania.sql

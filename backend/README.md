@@ -26,3 +26,7 @@
 
 Then start the server with : 
 - nodemon server
+
+
+# mySQL
+- Import the groupomania.sql
