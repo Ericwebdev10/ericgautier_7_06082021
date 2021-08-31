@@ -19,16 +19,21 @@ const sanitizeMiddleware = require("sanitize-middleware");
 
 const app = express();
 
-
 //Cross Origin Resource Sharing (CORS) is a W3C standard that allows a server to relax the same-origin policy. Using CORS, a server can explicitly allow some cross-origin requests while rejecting others.
 app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content, Accept, Content-Type, Authorization");
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, PATCH, OPTIONS");
-    next();
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader(
+		"Access-Control-Allow-Headers",
+		"Origin, X-Requested-With, Content, Accept, Content-Type, Authorization"
+	);
+	res.setHeader(
+		"Access-Control-Allow-Methods",
+		"GET, POST, PUT, DELETE, PATCH, OPTIONS"
+	);
+	next();
 });
 
-// Sanitize Middleware (Inyection Attacks)
+// Sanitize Middleware is used against injection attacks)
 app.use(sanitizeMiddleware());
 app.use(bodyParser.json());
 app.use(helmet());

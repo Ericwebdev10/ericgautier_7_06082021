@@ -7,7 +7,6 @@ const userCtrl = require("../controllers/users");
 const passwordValidator = require("../middleware/password-validator");
 const owneruser = require("../middleware/owneruser");
 
-
 router.post("/signup", passwordValidator, userCtrl.signup);
 router.post("/login", limiter, userCtrl.login);
 router.delete("/delete/:id", auth, owneruser, userCtrl.deleteUser);

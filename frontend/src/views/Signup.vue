@@ -110,7 +110,7 @@ export default {
         return containsUppercase && containsLowercase && containsNumber;
       },
       minLength: minLength(8),
-      maxLength: maxLength(19),
+      maxLength: maxLength(30),
     },
   },
   methods: {
@@ -142,6 +142,7 @@ export default {
             console.log(error);
             document.getElementById("ErrorHandler").innerHTML =
               "Cannot create user / email must be unique";
+            alert("Cannot create user / email must be unique");
           });
       }
     },

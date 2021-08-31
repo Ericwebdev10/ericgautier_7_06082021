@@ -50,6 +50,7 @@ exports.login = async (req, res, next) => {
 								});
 							} else {
 								console.log(cryptoEmail, "connected");
+								//								console.log(req.body.email, "connected");
 								res.status(200).json({
 									userId: results[0].id,
 									email: results[0].email,

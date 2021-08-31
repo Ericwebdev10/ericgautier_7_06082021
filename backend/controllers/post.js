@@ -65,11 +65,9 @@ exports.modifyPost = (req, res, next) => {
 							],
 							(error, result) => {
 								if (error) {
-									return res
-										.status(400)
-										.json({
-											error: "Post cannot be modified",
-										});
+									return res.status(400).json({
+										error: "Post cannot be modified",
+									});
 								}
 								return res.status(200).json(result);
 							}
@@ -115,17 +113,13 @@ exports.deletePost = (req, res, next) => {
 							req.params.id,
 							(error, rows, fields) => {
 								if (error) {
-									return res
-										.status(500)
-										.json({
-											error: "impossible de supprimer",
-										});
+									return res.status(500).json({
+										error: "impossible de supprimer",
+									});
 								} else {
-									return res
-										.status(200)
-										.json({
-											message: "Message supprimé !",
-										});
+									return res.status(200).json({
+										message: "Message supprimé !",
+									});
 								}
 							}
 						);
