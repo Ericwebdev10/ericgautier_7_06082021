@@ -1,8 +1,8 @@
-# Groupania 
+# Groupomania 
 ## Create a social network based on Vue.js (frontend) and node.js / Express (backend), using MySQL database.
 
 Scope :
-- Create user account => must be
+- Create user account => must be unique
 - Store encrypted email and password into the database
 - Modifiy / delete account
 - Add post with text and picture or gif
@@ -52,6 +52,7 @@ Open your browser : http://localhost:8080/
 - DB_PASS=
 - DB_TOKEN=
 - DB_HOST= only if different from @localhost
+- DB_NAME=groupomania
 
 Then start the server with : 
 - nodemon server
