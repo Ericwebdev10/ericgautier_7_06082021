@@ -11,8 +11,6 @@
 - npm install password-validator
 - npm install --save express-rate-limit
 - npm install helmet --save
-- npm i maskdata
-- npm i sequelize
 - npm i mysql2
 - npm install crypto-js
 

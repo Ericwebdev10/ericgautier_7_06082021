@@ -41,12 +41,12 @@
         class="btn btn-primary signup"
         v-on:click="loginUser()"
       >
-        Connect</button
+        Login</button
       ><br />
     </form>
 
     <p class="dropdown-item">Not registered yet? Create your account here !</p>
-    <router-link class="btn btn-primary" to="/Signup">Register</router-link>
+    <router-link class="btn btn-primary" to="/Signup">Subscribe</router-link>
 
     <Footer />
   </main>

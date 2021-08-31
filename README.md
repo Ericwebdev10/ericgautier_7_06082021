@@ -1,3 +1,17 @@
+# Groupania 
+## Create a social network based on Vue.js (frontend) and node.js / Express (backend), using MySQL database.
+
+Scope :
+- Create user account => must be
+- Store encrypted email and password into the database
+- Modifiy / delete account
+- Add post with text and picture or gif
+- Add comment to a post
+- Delete post or comment (if owner or administrator)
+- Delete user and all related posts and comments
+- Protect against attacks and injections
+
+
 
 # Frontend
 1- Clone the repository.

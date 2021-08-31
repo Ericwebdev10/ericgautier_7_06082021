@@ -59,14 +59,14 @@
         class="btn btn-primary signup"
         @click="createUser()"
       >
-        Register here
+        Subscribe
       </button>
     </form>
     <div class="dropdown-divider"></div>
     <p class="dropdown-item encouragement">
       Already have an account? connect here !
     </p>
-    <router-link class="btn btn-primary" to="/">Connect</router-link>
+    <router-link class="btn btn-primary" to="/">Login</router-link>
 
     <Footer />
   </main>
